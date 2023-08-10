@@ -1,16 +1,14 @@
 package com.meroka.java.main;
 
-//import required classes and package, if any
-        import java.util.Scanner;
+import java.util.Scanner;
 
-// create class CaesarCipherExample for encryption and decryption
-public class Cipher
+public class Cipher  // create class CaesarCipherExample for encryption and decryption
 {
     // ALPHABET string denotes alphabet from a-z
     public static final String ALPHABET = "abcdefghijklmnopqrstuvwxyz";
 
     // create encryptData() method for encrypting user input string with given shift key
-    public static String encryptData(String inputStr, int shiftKey)
+    public static String encrypt(String inputStr, int shiftKey)
     {
         // convert inputStr into lower case
         inputStr = inputStr.toLowerCase();
@@ -37,7 +35,7 @@ public class Cipher
     }
 
     // create decryptData() method for decrypting user input string with given shift key
-    public static String decryptData(String inputStr, int shiftKey)
+    public static String decrypt(String inputStr, int shiftKey)
     {
         // convert inputStr into lower case
         inputStr = inputStr.toLowerCase();
@@ -81,8 +79,8 @@ public class Cipher
         System.out.println("Enter the value by which each character in the plaintext message gets shifted: ");
         int shiftKey = Integer.valueOf(sc.nextLine());
 
-        System.out.println("Encrypted Data ===> "+encryptData(inputStr, shiftKey));
-        System.out.println("Decrypted Data ===> "+decryptData(encryptData(inputStr, shiftKey), shiftKey));
+        System.out.println("Encrypted Data: "+encrypt(inputStr, shiftKey));
+        System.out.println("Decrypted Data :"+decrypt(encrypt(inputStr, shiftKey), shiftKey));
 
         // close Scanner class object
         sc.close();
