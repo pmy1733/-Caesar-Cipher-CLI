@@ -1,25 +1,20 @@
 package com.meroka.java.test;
 
-import com.meroka.java.main.Cipher;
+import com.meroka.java.main.CaecerCipher;
 import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class CipherTest {
-    Cipher tests=new Cipher();
-
     @Test
     void confirmEncryption(){
-        String enString= Cipher.decrypt("VnARXYTjI",9);
-        assertEquals("MerIOPKaz",enString);
+        String enString= CaecerCipher.encrypt("ewJaghcsR",9);
+        assertEquals("nFSjpqlBa",enString);
     }
-
+    @Test
     void confirmDecryption(){
-        String enString= Cipher.encrypt("MerIOPKaz",9);
-        assertEquals("VnARXYTjI",enString);
+        String deString= CaecerCipher.decrypt("MerIOPKaz",9);
+        assertEquals("DVizFGBRq",deString);
     }
-
-
 
 
 }
