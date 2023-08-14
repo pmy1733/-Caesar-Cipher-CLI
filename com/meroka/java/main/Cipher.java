@@ -5,15 +5,14 @@ import java.util.Scanner;
 public class Cipher  // create class CaesarCipherExample for encryption and decryption
 {
     // ALPHABET string denotes alphabet from a-z
-    public static final String ALPHABET = "abcdefghijklmnopqrstuvwxyz";
+    public static  String ALPHABET1 = "abcdefghijklmnopqrstuvwxyz";
+    public static  String ALPHABET2 = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+    public static final String ALPHABET = ALPHABET1 + ALPHABET2 ;
 
     // create encryptData() method for encrypting user input string with given shift key
     public static String encrypt(String inputStr, int shiftKey)
     {
-        // convert inputStr into lower case
-        inputStr = inputStr.toLowerCase();
-
-        // encryptStr to store encrypted data
         String encryptStr = "";
 
         // use for loop for traversing each character of the input string
@@ -23,7 +22,7 @@ public class Cipher  // create class CaesarCipherExample for encryption and decr
             int pos = ALPHABET.indexOf(inputStr.charAt(i));
 
             // get encrypted char for each char of inputStr
-            int encryptPos = (shiftKey + pos) % 26;
+            int encryptPos = (shiftKey + pos) % 52;
             char encryptChar = ALPHABET.charAt(encryptPos);
 
             // add encrypted char to encrypted string
@@ -37,9 +36,6 @@ public class Cipher  // create class CaesarCipherExample for encryption and decr
     // create decryptData() method for decrypting user input string with given shift key
     public static String decrypt(String inputStr, int shiftKey)
     {
-        // convert inputStr into lower case
-        inputStr = inputStr.toLowerCase();
-
         // decryptStr to store decrypted data
         String decryptStr = "";
 
@@ -51,7 +47,7 @@ public class Cipher  // create class CaesarCipherExample for encryption and decr
             int pos = ALPHABET.indexOf(inputStr.charAt(i));
 
             // get decrypted char for each char of inputStr
-            int decryptPos = (pos - shiftKey) % 26;
+            int decryptPos = (pos - shiftKey) % 52;
 
             // if decryptPos is negative
             if (decryptPos < 0){
@@ -73,10 +69,10 @@ public class Cipher  // create class CaesarCipherExample for encryption and decr
         Scanner sc = new Scanner(System.in);
 
         // take input from the user
-        System.out.println("Enter a string for encryption using Caesar Cipher: ");
+        System.out.println("Enter a string to encrypt: ");
         String inputStr = sc.nextLine();
 
-        System.out.println("Enter the value by which each character in the plaintext message gets shifted: ");
+        System.out.println("Enter encryption shift key: ");
         int shiftKey = Integer.valueOf(sc.nextLine());
 
         System.out.println("Encrypted Data: "+encrypt(inputStr, shiftKey));
